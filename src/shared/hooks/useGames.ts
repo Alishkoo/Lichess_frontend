@@ -6,6 +6,7 @@ export function useGames(limit: number = 20, perfType?: string) {
   const [data, setData] = useState<GamesListResponse | null>(null)
   const [loading, setLoading] = useState(true)
   const [isInitialLoad, setIsInitialLoad] = useState(true)
+  const [isSyncing, setIsSyncing] = useState(false)
   const [error, setError] = useState<string | null>(null)
   const [currentPage, setCurrentPage] = useState(1)
 
@@ -43,7 +44,20 @@ export function useGames(limit: number = 20, perfType?: string) {
   }
 
   useEffect(() => {
-    loadGames(1)
+    const fetchOrSync = async () => {
+      await loadGames(1)
+      if (!data || !data.items || data.items.length === 0) {
+        setIsSyncing(true)
+        try {
+          await gamesService.syncGames()
+          await loadGames(1)
+        } catch (e) {
+        } finally {
+          setIsSyncing(false)
+        }
+      }
+    }
+    fetchOrSync()
   }, [perfType])
 
   return {
@@ -53,6 +67,7 @@ export function useGames(limit: number = 20, perfType?: string) {
     totalPages: data?.pages || 0,
     loading,
     isInitialLoad,
+    isSyncing,
     error,
     nextPage,
     prevPage,

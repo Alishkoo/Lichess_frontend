@@ -4,7 +4,31 @@ import styles from './GamesList.module.css'
 
 export function GamesList() {
   const [perfFilter, setPerfFilter] = useState<string>('')
-  const { games, loading, isInitialLoad, error, currentPage, totalPages, nextPage, prevPage } = useGames(10, perfFilter || undefined)
+  const { games, loading, isInitialLoad, isSyncing, error, currentPage, totalPages, nextPage, prevPage } = useGames(10, perfFilter || undefined)
+
+  if (isSyncing) {
+    return (
+      <div className={styles.container}>
+        <div className={styles.header}>
+          <h2 className={styles.title}>Games History</h2>
+          <select 
+            value={perfFilter} 
+            onChange={(e) => setPerfFilter(e.target.value)}
+            className={styles.filter}
+          >
+            <option value="">All games</option>
+            <option value="blitz">Blitz</option>
+            <option value="rapid">Rapid</option>
+            <option value="classical">Classical</option>
+            <option value="bullet">Bullet</option>
+            <option value="correspondence">Correspondence</option>
+            <option value="ultraBullet">Ultra Bullet</option>
+          </select>
+        </div>
+        <p className={styles.message}>Синхронизация данных с Lichess...</p>
+      </div>
+    )
+  }
 
   if (isInitialLoad && loading) {
     return (
