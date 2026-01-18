@@ -1,0 +1,222 @@
+.container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  background-color: #fafafa;
+}
+
+.card {
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 24px 16px;
+  max-width: 700px;
+  width: 100%;
+  text-align: center;
+}
+
+.avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  margin-bottom: 12px;
+  border: 2px solid var(--color-border);
+}
+
+.title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: var(--color-text);
+}
+
+.subtitle {
+  color: var(--color-text-secondary);
+  font-size: 0.9rem;
+  margin-bottom: 16px;
+}
+
+.link {
+  display: inline-block;
+  color: var(--color-primary);
+  text-decoration: none;
+  font-size: 0.85rem;
+  margin-bottom: 16px;
+  transition: opacity 0.2s;
+}
+
+.link:hover {
+  opacity: 0.8;
+}
+
+.ratings {
+  margin: 16px 0;
+  padding: 16px;
+  background-color: #fafafa;
+  border-radius: var(--radius);
+  border: 1px solid var(--color-border);
+}
+
+.ratingsTitle {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 12px;
+  color: var(--color-text);
+}
+
+.ratingItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.ratingItem:last-child {
+  border-bottom: none;
+}
+
+.ratingType {
+  font-weight: 500;
+  color: var(--color-text);
+  flex: 1;
+  text-align: left;
+  font-size: 0.9rem;
+}
+
+.ratingValue {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  margin: 0 6px;
+}
+
+.ratingGames {
+  font-size: 0.75rem;
+  color: var(--color-text-secondary);
+}
+
+.info {
+  margin: 16px 0;
+  padding-top: 12px;
+  border-top: 1px solid var(--color-border);
+}
+
+.infoText {
+  font-size: 0.8rem;
+  color: var(--color-text-secondary);
+  margin: 6px 0;
+}
+
+.error {
+  color: #d32f2f;
+  margin: 12px 0;
+  font-size: 0.85rem;
+}
+
+.button {
+  background-color: var(--color-text);
+  color: white;
+  border: none;
+  border-radius: var(--radius);
+  padding: 10px 24px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin: 16px 0;
+  width: 100%;
+}
+
+.button:hover {
+  background-color: #333;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.button:active {
+  transform: translateY(0);
+}
+
+@media (min-width: 640px) {
+  .container {
+    padding: 20px;
+  }
+
+  .card {
+    padding: 40px;
+  }
+
+  .avatar {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 16px;
+  }
+
+  .title {
+    font-size: 1.75rem;
+    margin-bottom: 12px;
+  }
+
+  .subtitle {
+    font-size: 1rem;
+    margin-bottom: 24px;
+  }
+
+  .link {
+    font-size: 0.9rem;
+    margin-bottom: 24px;
+  }
+
+  .ratings {
+    margin: 24px 0;
+    padding: 20px;
+  }
+
+  .ratingsTitle {
+    font-size: 1.1rem;
+    margin-bottom: 16px;
+  }
+
+  .ratingItem {
+    padding: 10px 0;
+  }
+
+  .ratingType {
+    font-size: 1rem;
+  }
+
+  .ratingValue {
+    font-size: 1.25rem;
+    margin: 0 8px;
+  }
+
+  .ratingGames {
+    font-size: 0.85rem;
+  }
+
+  .info {
+    margin: 24px 0;
+    padding-top: 16px;
+  }
+
+  .infoText {
+    font-size: 0.9rem;
+    margin: 8px 0;
+  }
+
+  .error {
+    margin: 16px 0;
+    font-size: 0.9rem;
+  }
+
+  .button {
+    padding: 12px 32px;
+    font-size: 0.9rem;
+    margin-top: 16px;
+    width: auto;
+  }
+}
